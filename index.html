@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Alunos</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .aluno {
+            background-color: #ddd;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Cadastro de Alunos</h2>
+
+        <label>Nome do aluno:</label>
+        <input type="text" id="nome" placeholder="Digite seu nome">
+
+        <label>RA:</label>
+        <input type="number" id="ra" placeholder="Digite seu RA">
+
+        <button onclick="cadastrarAluno">Cadastrar</button>
+
+        <h3>Lista de Alunos</h3>
+
+        <div id="lista-alunos"></div>
+
+        <script>
+            function cadastrarAluno() {
+
+                let nome = document.getElementById("nome");
+                let ra = document.getElementById("RA");
+
+                if (nome.value == "" || ra.value == "") {
+                    alert("Preencha todos os campos!");
+                    return;
+                }
+
+                let lista = document.getElementById("lista-aluno");
+
+                let novoAluno = document.createElement("p");
+
+                novoAluno.className = "aluno";
+
+                novoAluno.innerHTML = "Nome: " + nome.value +
+                    "<br> RA: " + ra.value;
+
+                lista.appendchild(novoAluno);
+
+                alert("Aluno cadastrado com sucesso!");
+
+                nome.value = "";
+                ra.value = "";
+            }
+        </script>
+
+    </div>
+
+</body>
+</html>

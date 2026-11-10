@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Produtos</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            width: 450px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: blue;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .produto {
+            background-color: #eeeeee;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        .preco {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Cadastro de Produtos</h2>
+
+        <p>Cadastre seus produtos abaixo:</p>
+
+        <label>Nome do produto:</label>
+        <input type="text" id="nome" placeholder="Digite o produto">
+
+        <label>Preço:</label>
+        <input type="number" id="preco" placeholder="Digite o preço">
+
+        <label>Quantidade:</label>
+        <input type="number" id="quantidade" placeholder="Digite a quantidade">
+
+        <button onclick="cadastrarProduto()">Cadastrar Produto</button>
+
+        <h3>Produtos cadastrados</h3>
+
+        <div id="lista-produtos"></div>
+
+        <script>
+
+            function cadastrarProduto() {
+
+                let nome = document.getElementById("nome");
+                let preco = document.getElementById("preco");
+                let quantidade = document.getElementById("quantidade");
+
+                if (nome.value == "" || preco.value == "" || quantidade.value == "") {
+                    alert("Preencha todos os campos!");
+                    return;
+                }
+
+                let lista = document.getElementById("lista-produto");
+
+                let novoProduto = document.createElement("div");
+
+                novoProduto.className = "produto";
+
+                novoProduto.innerHTML =
+                    "<strong>" + nome.value + "</strong>" +
+                    "<br>Preço: R$ " + preco.value +
+                    "<br>Quantidade: " + quantidade.value;
+
+                lista.appendchild(novoProduto);
+
+                alert("Produto cadastrado com sucesso!");
+
+                nome.value = "";
+                preco.value = "";
+                quantidade.value = "";
+
+            }
+
+        </script>
+
+    </div>
+
+</body>
+</html>
